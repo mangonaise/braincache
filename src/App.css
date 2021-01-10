@@ -81,7 +81,6 @@ body {
 }
 
 .word-button { 
-  position: relative;
   display: block;
   height: 45px;
   min-width: 100px;
@@ -157,7 +156,6 @@ body {
 
 .move-into-view {
   animation: sweep-in var(--word-sweep-duration) cubic-bezier(0.33, 1, 0.68, 1);
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
@@ -174,21 +172,21 @@ body {
 @keyframes sweep-in {
   0% {
     opacity: 0%;
-    left: 200px;
+    transform: translateX(200px);
   }
   100% {
     opacity: 100%;
-    left: 0px;
+    transform: translateX(0);
   }
 } 
 
 @keyframes sweep-out {
   0% {
     opacity: 100%;
-    right: 0px;
+    transform: translateX(0);
   }
   100% {
     opacity: 0%;
-    right: 200px;
+    transform: translateX(-200px);
   }
 }
