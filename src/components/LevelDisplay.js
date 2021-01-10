@@ -1,4 +1,5 @@
 import React from 'react';
+import './LevelDisplay.css';
 
 const LevelDisplay = ({ level }) => {
   return (

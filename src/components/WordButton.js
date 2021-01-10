@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './WordButton.css';
 
 const WordButton = ({ word, correctAnswer, onSelect, disabled, moveOutOfView }) => {
   const [wasSelected, setWasSelected] = useState(false);
