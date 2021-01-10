@@ -7,7 +7,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .unselected-word:focus {
+  .unselected-word:focus, .unselected-word:hover {
     border-color: var(--button-focus-color);
   }
 
@@ -26,10 +26,6 @@
 
 .word-button:focus {
   outline: none;
-}
-
-.unselected-word:hover {
-  border-color: var(--button-focus-color);
 }
 
 .unselected-word:active {
