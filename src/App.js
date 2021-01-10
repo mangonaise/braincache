@@ -15,7 +15,7 @@ const statuses = {
 const root = document.documentElement;
 
 function App() {
-  const [levelNumber, setLevelNumber] = useState(0);
+  const [currentLevel, setCurrentLevel] = useState(0);
   const [levelsSinceLastMistake, setLevelsSinceLastMistake] = useState(0);
   const [lives, setLives] = useState(3);
   const [disableWordButtons, setDisableWordButtons] = useState(false);
@@ -66,12 +66,23 @@ function App() {
     })
   } // Updated word state triggers display of next level...
 
+  useEffect(() => {
+    setLevelState(newLevelState());
+  }, [words]);
+
+  useEffect(() => {
+    if (levelState.wordSelection.length > 0) {
+      displayNextLevel();
+    }
+  }, [levelState])
+
   function displayNextLevel() {
-    setLevelNumber(prevState => prevState + 1);
+    setCurrentLevel(prevState => prevState + 1);
     setMoveWordsOutOfView(false);
     setDisableWordButtons(false);
     setStatusText(statuses.promptSelection);
     document.activeElement.blur();
+    if (currentLevel === 3) root.style.setProperty('--word-shortcut-visibility', 'hidden');
   }
 
   function newLevelState() {
@@ -101,25 +112,16 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    setLevelState(newLevelState());
-  }, [words]);
-
-  useEffect(() => {
-    if (levelState.wordSelection.length > 0) {
-      displayNextLevel();
-    }
-  }, [levelState])
-
   return (
     <div className="App">
-      <LevelDisplay level={levelNumber} />
+      <LevelDisplay level={currentLevel} moveOutOfView={moveWordsOutOfView}/>
       <VerticalBreak />
       <LivesDisplay lives={lives}/>
       <VerticalBreak />
       {levelState.wordSelection.map((word, index) => (
         <WordButton 
           key={index}
+          shortcut={index + 1}
           word={word} 
           correctAnswer={levelState.correctAnswer}
           onSelect={handleSelectWord}

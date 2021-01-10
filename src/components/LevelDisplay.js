@@ -1,11 +1,13 @@
 import React from 'react';
 import './LevelDisplay.css';
 
-const LevelDisplay = ({ level }) => {
+const LevelDisplay = ({ level, moveOutOfView }) => {
   return (
     <div id="level-display">
-      Level
-      <div id="level-number-indicator">{level}</div>
+      <div>Level</div>
+      <div id="level-number-indicator" >
+        <div className={moveOutOfView ? 'move-out-of-view' : 'move-into-view'}>{level}</div>
+      </div>
     </div>
   )
 }

@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 :root {
-  --word-button-focus-color: rgb(189, 189, 189);
-  --gentle-red: rgb(206, 57, 57);
-  --gentle-red-border: rgb(182, 49, 49);
-  --gentle-green:  rgb(120, 200, 0);
-  --gentle-green-border:  rgb(106, 177, 0);
   --word-sweep-duration: 400ms;
+  --button-focus-color: rgb(189, 189, 189);
 }
 
 body {
   background-color: white;
+  box-sizing: border-box;
 }
 
 * {
@@ -32,6 +29,12 @@ body {
   border-radius: 16px;
 }
 
+#title {
+  text-align: center;
+  color: rgb(73, 73, 73);
+  cursor: default;
+}
+
 #status-text {
   font-size: 18px;
   font-weight: 500;
@@ -43,10 +46,51 @@ body {
   height: 40px;
   min-width: 225px;
   border-radius: 12px;
-  padding: 3px 16px;
+  padding: 5px 16px;
   border: solid 2px;
   border-color: rgb(226, 226, 226);
   background-color: rgb(245, 245, 245);
+  margin: 0 10px;
+  text-align: center;
+}
+
+.stylish-button {
+  display: block;
+  height: 45px;
+  min-width: 100px;
+  font-weight: 500;
+  color: rgb(116, 116, 116);
+  font-size: 18px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  padding: 4px 16px 5px 16px;
+  border: solid 2px;
+  border-bottom: solid 5px;
+  border-color: rgb(226, 226, 226);
+  background-color: white;
+  box-shadow: inset rgb(0,0,0,0.045) 0px 1px 3px 1px, inset white 0px 0px 0px 3px;
+}
+
+.ui-button:hover {
+  border-color: var(--button-focus-color);
+}
+
+.ui-button:focus {
+  outline: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .ui-button:focus {
+    border-color: var(--button-focus-color);
+  }
+}
+
+.ui-button:active {
+  outline: none;
+  border-bottom-width: 2px;
+  height: 40px;
+  margin-top: 5px;
 }
 
 .move-into-view {
@@ -57,7 +101,6 @@ body {
 .move-out-of-view {
   animation: sweep-out var(--word-sweep-duration) cubic-bezier(0.12, 0, 0.39, 0);
   animation-fill-mode: forwards;
-  background: white;
 }
 
 @keyframes sweep-in {
