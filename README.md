@@ -1,1 +1,4 @@
-Verbal memory game created with React. How many words can you hold in your head? Includes 2,000 English words, hand-picked for memorability.
+# 🧠 Word Memory Game
+Test your brain! How many words can you hold in your head?
+<hr>
+This is a memory game created with React. The dictionary includes 2,000 English words hand-picked for memorability.
