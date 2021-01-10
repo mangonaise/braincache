@@ -1,35 +1,47 @@
 import React, { useState, useEffect } from 'react'; 
 import wordList from './words';
 import './App.css';
+import StartScreen from './components/StartScreen';
+import EndScreen from './components/EndScreen';
 import WordButton from './components/WordButton';
 import LevelDisplay from './components/LevelDisplay';
 import LivesDisplay from './components/LivesDisplay';
 import VerticalBreak from './components/VerticalBreak';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const statuses = {
   promptSelection: 'Select the new word.',
   wasCorrect: 'Nice!',
-  wasIncorrect: 'That\'s not a new word.',
+  wasIncorrect: 'You\'ve seen that before.',
 }
 
 const root = document.documentElement;
+const initWords = { seen: [], unseen: [...wordList] };
+const initLevelState = { wordSelection: [], correctAnswer: ''};
 
 function App() {
-  const [currentLevel, setCurrentLevel] = useState(0);
+  const [currentScreen, setCurrentScreen] = useState('start');
+  const [currentLevel, setCurrentLevel] = useState();
+  const [highScore, setHighScore] = useState(localStorage.getItem('highScore') ?? 0);
+  const [previousHighScore, setPreviousHighScore] = useState(0);
   const [levelsSinceLastMistake, setLevelsSinceLastMistake] = useState(0);
   const [lives, setLives] = useState(3);
   const [disableWordButtons, setDisableWordButtons] = useState(false);
   const [moveWordsOutOfView, setMoveWordsOutOfView] = useState(false);
   const [statusText, setStatusText] = useState(statuses.promptSelection);
+  const [words, setWords] = useState();
+  const [levelState, setLevelState] = useState();
 
-  const [words, setWords] = useState({
-    seen: [],
-    unseen: [...wordList]
-  });
-  const [levelState, setLevelState] = useState({
-    wordSelection: [],
-    correctAnswer: ''
-  });
+  function startGame() {
+    setCurrentLevel(0);
+    setLevelsSinceLastMistake(0);
+    setLives(3);
+    setDisableWordButtons(false);
+    setMoveWordsOutOfView(false);
+    setWords(initWords);
+    setLevelState(initLevelState);
+  }
 
   function handleSelectWord(isCorrect) {
     setDisableWordButtons(true);
@@ -64,17 +76,34 @@ function App() {
         unseen: prevWords.unseen.filter(word => !levelState.wordSelection.includes(word))
       }
     })
-  } // Updated word state triggers display of next level...
+  } 
 
+  // Updated word state triggers new level state. Or, if game over, ends the game.
   useEffect(() => {
-    setLevelState(newLevelState());
+    if (!words) return;
+    if (lives > 0 && words.unseen.length > 0) {
+      setLevelState(newLevelState());
+    } else {
+      endGame();
+    }
   }, [words]);
 
+  // Updated level state triggers display of the next level. Or, if initialized, starts the game.
   useEffect(() => {
+    if (!levelState) return;
     if (levelState.wordSelection.length > 0) {
       displayNextLevel();
+    } else if (levelState === initLevelState) {
+      setCurrentScreen('game');
     }
   }, [levelState])
+
+  // Ending the game saves the high score.
+  useEffect(() => {
+    if (currentScreen === 'end') {
+      saveHighScore();
+    }
+  }, [currentScreen])
 
   function displayNextLevel() {
     setCurrentLevel(prevState => prevState + 1);
@@ -82,7 +111,7 @@ function App() {
     setDisableWordButtons(false);
     setStatusText(statuses.promptSelection);
     document.activeElement.blur();
-    if (currentLevel === 3) root.style.setProperty('--word-shortcut-visibility', 'hidden');
+    if (currentLevel === 1) root.style.setProperty('--word-shortcut-visibility', 'hidden');
   }
 
   function newLevelState() {
@@ -112,26 +141,69 @@ function App() {
     }
   }
 
-  return (
-    <div className="App">
-      <LevelDisplay level={currentLevel} moveOutOfView={moveWordsOutOfView}/>
-      <VerticalBreak />
-      <LivesDisplay lives={lives}/>
-      <VerticalBreak />
-      {levelState.wordSelection.map((word, index) => (
-        <WordButton 
-          key={index}
-          shortcut={index + 1}
-          word={word} 
-          correctAnswer={levelState.correctAnswer}
-          onSelect={handleSelectWord}
-          disabled={disableWordButtons || word === null}
-          moveOutOfView={moveWordsOutOfView}
-        />
-      ))}
-      <VerticalBreak />
-      <div id="status-text">{statusText}</div>
-    </div>
+  function saveHighScore() {
+    const prevBest = localStorage.getItem('highScore') ?? 0;
+    setPreviousHighScore(prevBest);
+    if (currentLevel > prevBest) {
+      localStorage.setItem('highScore', currentLevel);
+      setHighScore(currentLevel);
+    }
+  }
+
+  function endGame() {
+    setCurrentScreen('end');
+  }
+
+  let app;
+  if (currentScreen === 'start') {
+    app = (
+      <StartScreen 
+        highScore={highScore}
+        onStart={startGame}
+      />
+    )
+  } else if (currentScreen === 'end') {
+    app = (
+      <EndScreen 
+        score={currentLevel}
+        isMaxScore={words.unseen.length === 0}
+        highScore={previousHighScore}
+        onRestart={startGame}
+        seenWords={words.seen}
+      />
+    )
+  } else if (currentScreen === 'game') {
+    app = (
+      <div className="Screen">
+        <LevelDisplay level={currentLevel} moveOutOfView={moveWordsOutOfView}/>
+        <VerticalBreak />
+        <LivesDisplay lives={lives}/>
+        <VerticalBreak />
+        {levelState.wordSelection.map((word, index) => (
+          <WordButton 
+            key={index}
+            shortcut={index + 1}
+            word={word} 
+            correctAnswer={levelState.correctAnswer}
+            onSelect={handleSelectWord}
+            disabled={disableWordButtons || word === null}
+            moveOutOfView={moveWordsOutOfView}
+          />
+        ))}
+        <VerticalBreak />
+        <div className="stylish-text">{statusText}</div>
+      </div>
+    )
+  }
+
+  return (<>
+    <div className="App">{app}</div>
+    <div className="sticky-footer">
+      <div>by mangonaise</div>
+      <FontAwesomeIcon icon={faHeart} color="rgb(230, 101, 144)"/>
+      <a href="https://github.com/mangonaise/word-memory-game">github</a>
+      </div>
+    </>
   );
 }
 

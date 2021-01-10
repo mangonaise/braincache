@@ -9,7 +9,7 @@
   cursor: default;
 }
 
-#level-number-indicator {
+.level-number-indicator {
   font-size: 18px;
   font-weight: 500;
   display: flex;

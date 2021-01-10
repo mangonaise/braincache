@@ -77,6 +77,15 @@
 .word-shortcut-label {
   visibility: var(--word-shortcut-visibility);
   position: absolute;
+  font-size: 12px;
+  left: -85px;
+  top: 11px;
+  color: rgb(173, 173, 173);
+}
+
+.word-shortcut-key {
+  visibility: var(--word-shortcut-visibility);
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;

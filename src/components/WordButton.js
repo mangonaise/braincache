@@ -21,7 +21,7 @@ const WordButton = ({ shortcut, word, correctAnswer, onSelect, disabled, moveOut
 
   useEffect(() => {
     document.addEventListener('keyup', checkShortcut);
-    return (() => document.removeEventListener('keyup'));
+    return (() => document.removeEventListener('keyup', checkShortcut));
   }, [])
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const WordButton = ({ shortcut, word, correctAnswer, onSelect, disabled, moveOut
       className={`${getStyleFromAnimationState(animationState)} ${moveOutOfView ? 'move-out-of-view' : 'move-into-view'}`} 
       onClick={selectThisWord}>
       {word}
-      <div className="word-shortcut-label">{shortcut}</div>
+      <div className="word-shortcut-key">{shortcut}</div>
     </button>
   )
 }
