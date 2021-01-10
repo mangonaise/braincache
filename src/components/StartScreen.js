@@ -1,5 +1,5 @@
 import React from 'react';
-import VerticalBreak from '../components/VerticalBreak';
+import VerticalBreak from './VerticalBreak';
 
 const StartScreen = ({ highScore, onStart }) => {
   return (

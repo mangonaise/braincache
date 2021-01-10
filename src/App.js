@@ -228,16 +228,3 @@ function shuffle(array) {
 }
 
 export default App;
-
-
-// for visual debug
-// return (
-//   <div className="App">
-//     {wordList.map((word, index) => (
-//       <WordButton 
-
-//         word={word}
-//       />
-//     ))}
-//   </div>
-// )

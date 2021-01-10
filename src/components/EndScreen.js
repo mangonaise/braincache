@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import VerticalBreak from '../components/VerticalBreak';
+import VerticalBreak from './VerticalBreak';
+import './EndScreen.css';
 
 const EndScreen = ({ score, isMaxScore, highScore, onRestart, seenWords }) => {
   const [showWords, setShowWords] = useState(false);
-
-  console.log(seenWords);
-
-  console.log('score', score);
-  console.log('high score', highScore);
 
   let gameOverMessage = <div className="stylish-text">Game over!</div>;
   if (isMaxScore) {
@@ -34,6 +30,17 @@ const EndScreen = ({ score, isMaxScore, highScore, onRestart, seenWords }) => {
       <VerticalBreak size="m"/>
       <button className="stylish-button ui-button" onClick={onRestart}>Play Again</button>
       <button className="stylish-button ui-button" onClick={() => window.location.reload()}>Home</button>
+      {!showWords &&
+        <button className="stylish-button ui-button" onClick={() => setShowWords(true)}>Check Words</button>
+      }
+      {showWords && 
+        <div id="end-word-list">
+          <div id="end-word-list-title">You saw...</div>
+          {[...seenWords].sort().map((word, index) => 
+            <p key={index} className="end-screen-word">{word}</p>
+          )}
+        </div>
+      }
     </div>
   )
 }

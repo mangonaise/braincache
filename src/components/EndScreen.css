@@ -1,0 +1,41 @@
+:root {
+  --scrollbarBG: rgba(211, 211, 211, 0);
+  --thumbBG: #7c7c7c;
+}
+
+#end-word-list {
+  padding: 5px 2px;
+  max-height: 20vh;
+  min-width: 200px;
+  overflow-y: scroll;
+  border: solid 2px lightgray;
+  border-radius: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+#end-word-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#end-word-list::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+#end-word-list::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+#end-word-list-title {
+  text-align: center;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.end-screen-word {
+  text-align: center;
+  color: gray;
+  margin: 0;
+}
+
