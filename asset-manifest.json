@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/word-memory-game/static/css/main.23100a3f.chunk.css",
-    "main.js": "/word-memory-game/static/js/main.394984aa.chunk.js",
-    "main.js.map": "/word-memory-game/static/js/main.394984aa.chunk.js.map",
+    "main.css": "/word-memory-game/static/css/main.d69e6aa4.chunk.css",
+    "main.js": "/word-memory-game/static/js/main.3346cc46.chunk.js",
+    "main.js.map": "/word-memory-game/static/js/main.3346cc46.chunk.js.map",
     "runtime-main.js": "/word-memory-game/static/js/runtime-main.f0c4467e.js",
     "runtime-main.js.map": "/word-memory-game/static/js/runtime-main.f0c4467e.js.map",
-    "static/js/2.820c5f9e.chunk.js": "/word-memory-game/static/js/2.820c5f9e.chunk.js",
-    "static/js/2.820c5f9e.chunk.js.map": "/word-memory-game/static/js/2.820c5f9e.chunk.js.map",
+    "static/js/2.d241c381.chunk.js": "/word-memory-game/static/js/2.d241c381.chunk.js",
+    "static/js/2.d241c381.chunk.js.map": "/word-memory-game/static/js/2.d241c381.chunk.js.map",
     "index.html": "/word-memory-game/index.html",
-    "static/css/main.23100a3f.chunk.css.map": "/word-memory-game/static/css/main.23100a3f.chunk.css.map",
-    "static/js/2.820c5f9e.chunk.js.LICENSE.txt": "/word-memory-game/static/js/2.820c5f9e.chunk.js.LICENSE.txt"
+    "static/css/main.d69e6aa4.chunk.css.map": "/word-memory-game/static/css/main.d69e6aa4.chunk.css.map",
+    "static/js/2.d241c381.chunk.js.LICENSE.txt": "/word-memory-game/static/js/2.d241c381.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f0c4467e.js",
-    "static/js/2.820c5f9e.chunk.js",
-    "static/css/main.23100a3f.chunk.css",
-    "static/js/main.394984aa.chunk.js"
+    "static/js/2.d241c381.chunk.js",
+    "static/css/main.d69e6aa4.chunk.css",
+    "static/js/main.3346cc46.chunk.js"
   ]
 }
