@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/word-memory-game/static/css/main.87f87899.chunk.css",
-    "main.js": "/word-memory-game/static/js/main.3afe1440.chunk.js",
-    "main.js.map": "/word-memory-game/static/js/main.3afe1440.chunk.js.map",
+    "main.js": "/word-memory-game/static/js/main.207f8646.chunk.js",
+    "main.js.map": "/word-memory-game/static/js/main.207f8646.chunk.js.map",
     "runtime-main.js": "/word-memory-game/static/js/runtime-main.f0c4467e.js",
     "runtime-main.js.map": "/word-memory-game/static/js/runtime-main.f0c4467e.js.map",
     "static/js/2.a400a8c3.chunk.js": "/word-memory-game/static/js/2.a400a8c3.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.f0c4467e.js",
     "static/js/2.a400a8c3.chunk.js",
     "static/css/main.87f87899.chunk.css",
-    "static/js/main.3afe1440.chunk.js"
+    "static/js/main.207f8646.chunk.js"
   ]
 }
