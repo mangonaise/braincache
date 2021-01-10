@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/word-memory-game/static/css/main.4489b97f.chunk.css",
+    "main.css": "/word-memory-game/static/css/main.35abef3c.chunk.css",
     "main.js": "/word-memory-game/static/js/main.9a008430.chunk.js",
     "main.js.map": "/word-memory-game/static/js/main.9a008430.chunk.js.map",
     "runtime-main.js": "/word-memory-game/static/js/runtime-main.f0c4467e.js",
@@ -8,13 +8,13 @@
     "static/js/2.a400a8c3.chunk.js": "/word-memory-game/static/js/2.a400a8c3.chunk.js",
     "static/js/2.a400a8c3.chunk.js.map": "/word-memory-game/static/js/2.a400a8c3.chunk.js.map",
     "index.html": "/word-memory-game/index.html",
-    "static/css/main.4489b97f.chunk.css.map": "/word-memory-game/static/css/main.4489b97f.chunk.css.map",
+    "static/css/main.35abef3c.chunk.css.map": "/word-memory-game/static/css/main.35abef3c.chunk.css.map",
     "static/js/2.a400a8c3.chunk.js.LICENSE.txt": "/word-memory-game/static/js/2.a400a8c3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f0c4467e.js",
     "static/js/2.a400a8c3.chunk.js",
-    "static/css/main.4489b97f.chunk.css",
+    "static/css/main.35abef3c.chunk.css",
     "static/js/main.9a008430.chunk.js"
   ]
 }
