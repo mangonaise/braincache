@@ -170,23 +170,23 @@ body {
 }
 
 @keyframes sweep-in {
-  0% {
-    opacity: 0%;
+  from {
+    /* opacity: 0%; */
     transform: translateX(200px);
   }
-  100% {
-    opacity: 100%;
+  to {
+    /* opacity: 100%; */
     transform: translateX(0);
   }
 } 
 
 @keyframes sweep-out {
-  0% {
-    opacity: 100%;
+  from {
+    /* opacity: 100%; */
     transform: translateX(0);
   }
-  100% {
-    opacity: 0%;
+  to {
+    /* opacity: 0%; */
     transform: translateX(-200px);
   }
 }
