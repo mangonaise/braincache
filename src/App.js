@@ -17,7 +17,7 @@ function App() {
   const [levelNumber, setLevelNumber] = useState(0);
   const [levelsSinceLastMistake, setLevelsSinceLastMistake] = useState(0);
   const [lives, setLives] = useState(3);
-  const [isWaiting, setIsWaiting] = useState(false);
+  const [disableWordButtons, setDisableWordButtons] = useState(false);
   const [moveWordsOutOfView, setMoveWordsOutOfView] = useState(false);
   const [statusText, setStatusText] = useState(statuses.promptSelection);
 
@@ -29,10 +29,9 @@ function App() {
     wordSelection: [],
     correctAnswer: ''
   });
-  
 
   function handleSelectWord(isCorrect) {
-    setIsWaiting(true);
+    setDisableWordButtons(true);
     if (isCorrect) {
       setStatusText(statuses.wasCorrect);
     } else {
@@ -70,7 +69,7 @@ function App() {
   function displayNextLevel() {
     setLevelNumber(prevState => prevState + 1);
     setMoveWordsOutOfView(false);
-    setIsWaiting(false);
+    setDisableWordButtons(false);
     setStatusText(statuses.promptSelection);
     document.activeElement.blur();
   }
@@ -124,7 +123,7 @@ function App() {
           word={word} 
           correctAnswer={levelState.correctAnswer}
           onSelect={handleSelectWord}
-          disabled={isWaiting || word === null}
+          disabled={disableWordButtons || word === null}
           moveOutOfView={moveWordsOutOfView}
         />
       ))}
