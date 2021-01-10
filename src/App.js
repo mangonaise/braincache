@@ -4,6 +4,7 @@ import './App.css';
 import WordButton from './components/WordButton';
 import LevelDisplay from './components/LevelDisplay';
 import LivesDisplay from './components/LivesDisplay';
+import VerticalBreak from './components/VerticalBreak';
 
 const statuses = {
   promptSelection: 'Select the new word.',
@@ -114,9 +115,9 @@ function App() {
   return (
     <div className="App">
       <LevelDisplay level={levelNumber} />
-      <br/><br/>
+      <VerticalBreak />
       <LivesDisplay lives={lives}/>
-      <br/><br/>
+      <VerticalBreak />
       {levelState.wordSelection.map((word, index) => (
         <WordButton 
           key={index}
@@ -127,7 +128,7 @@ function App() {
           moveOutOfView={moveWordsOutOfView}
         />
       ))}
-      <br/>
+      <VerticalBreak />
       <div id="status-text">{statusText}</div>
     </div>
   );
