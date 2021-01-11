@@ -51,7 +51,7 @@ function App() {
       setStatusText(statuses.wasIncorrect);
       setLives(prevLives => prevLives - 1);
     }
-    sweepAwayWords(isCorrect).then(() => updateWordState());
+    sweepAwayWords(isCorrect).then(() => updateWordsState());
   }
 
   async function sweepAwayWords(isCorrect) {
@@ -69,7 +69,7 @@ function App() {
     await sleep(sweepDuration);
   }
 
-  function updateWordState() {
+  function updateWordsState() {
     setWords(prevWords => {
       return {
         seen: [...prevWords.seen, levelState.correctAnswer],
@@ -78,7 +78,7 @@ function App() {
     })
   } 
 
-  // Updated word state triggers new level state. Or, if game over, ends the game.
+  // Updated words state triggers new level state. Or, if game over, ends the game.
   useEffect(() => {
     if (!words) return;
     if (lives > 0 && words.unseen.length > 0) {
