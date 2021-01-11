@@ -30,12 +30,18 @@ const WordButton = ({ shortcut, word, correctAnswer, onSelect, disabled, moveOut
 
   useEffect(() => {
     selectThisWordRef.current = selectThisWord;
+    if (disabled && word === correctAnswer && animationState==='none') {
+      setAnimationState('actualAnswer');
+    } 
   }, [disabled])
 
   return(
     <button 
       disabled={disabled && animationState === 'none'}
-      className={`${getStyleFromAnimationState(animationState)} ${moveOutOfView ? 'move-out-of-view' : 'move-into-view'}`} 
+      className={
+        `${getStyleFromAnimationState(animationState)} 
+        ${moveOutOfView ? 'move-out-of-view' : 'move-into-view'}` 
+      } 
       onClick={selectThisWord}>
       {word}
       <div className="word-shortcut-key">{shortcut}</div>
@@ -47,6 +53,8 @@ function getStyleFromAnimationState(state) {
   let style = 'stylish-button word-button';
   if (state === 'none') {
     style += ' unselected-word';
+  } else if (state === 'actualAnswer') {
+    style += ' actual-word';
   } else {
     style += ' animate-word';
     style += state === 'correct' ? ' correct-word' : ' incorrect-word';
