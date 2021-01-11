@@ -13,6 +13,7 @@ const StartScreen = ({ highScore, onStart }) => {
         <ul>
           <li>Words will appear on the screen.</li>
           <li>Select the one you haven't seen.</li>
+          <li>Don't select any words that you've seen before, or you'll lose a life.</li>
           <li> Most people score somewhere between 50 and 200.</li>
         </ul>
       </div>
