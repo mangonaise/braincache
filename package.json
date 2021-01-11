@@ -1,8 +1,8 @@
 {
-  "name": "word-memory-game",
+  "name": "braincache",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mangonaise.github.io/word-memory-game",
+  "homepage": "http://mangonaise.github.io/braincache",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
