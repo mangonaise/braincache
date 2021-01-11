@@ -4,7 +4,11 @@ import VerticalBreak from './VerticalBreak';
 const StartScreen = ({ highScore, onStart }) => {
   return (
     <div className="Screen move-into-view">
-      <h1 id="title">🧠</h1>
+      <div id="title">🧠
+        <div>
+          <span style={{color: '#81d2eb'}}>brain</span><span style={{color: '#65b2c9'}}>cache</span>
+        </div>
+      </div>
       <div className="stylish-text">How many words can you remember?</div>
       <VerticalBreak size="m" />
       <div className="flex-row">Your best score: <span className="level-number-indicator">{highScore}</span></div>

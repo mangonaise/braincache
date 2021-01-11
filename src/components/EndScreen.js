@@ -23,7 +23,7 @@ const EndScreen = ({ score, isMaxScore, highScore, onRestart, seenWords }) => {
 
   return (
     <div className="Screen move-into-view">
-      <h1 id="title">🧠</h1>
+      <h1 id="title">👏</h1>
       {gameOverMessage}
       <VerticalBreak size="m" />
       <div className="flex-row">{scoreLabel} <span className="level-number-indicator">{score}</span></div>
