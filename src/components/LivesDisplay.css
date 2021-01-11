@@ -2,7 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+}
+
+#lives-display > * {
+  margin: 0px 5px;
 }
 
 .life-icon {

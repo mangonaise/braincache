@@ -3,10 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   color: rgb(107, 107, 107);
   font-weight: 500;
   cursor: default;
+}
+
+#level-display > * {
+  margin: 5px 0;
 }
 
 .level-number-indicator {
