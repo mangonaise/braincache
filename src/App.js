@@ -191,14 +191,14 @@ function App() {
           />
         ))}
         <VerticalBreak />
-        <div className="stylish-text">{statusText}</div>
+        <div className="boxed-text">{statusText}</div>
       </div>
     )
   }
 
   return (<>
     <div className="App">{app}</div>
-    <div className="sticky-footer">
+    <div className="footer">
       <div>by mangonaise</div>
       <FontAwesomeIcon icon={faHeart} color="rgb(230, 101, 144)"/>
       <a href="https://github.com/mangonaise/word-memory-game">github</a>

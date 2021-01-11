@@ -9,11 +9,11 @@ const StartScreen = ({ highScore, onStart }) => {
           <span style={{color: '#81d2eb'}}>brain</span><span style={{color: '#65b2c9'}}>cache</span>
         </div>
       </div>
-      <div className="stylish-text">How many words can you remember?</div>
+      <div className="boxed-text">How many words can you remember?</div>
       <VerticalBreak size="m" />
       <div className="flex-row">Your best score: <span className="level-number-indicator">{highScore}</span></div>
       <VerticalBreak size="m"/>
-      <div className="stylish-text content">
+      <div className="boxed-text content">
         <ul>
           <li>Words will appear on the screen.</li>
           <li>Select the one you haven't seen.</li>
@@ -22,7 +22,7 @@ const StartScreen = ({ highScore, onStart }) => {
         </ul>
       </div>
       <VerticalBreak size="m"/>
-      <button className="stylish-button ui-button" onClick={onStart}>Start</button>
+      <button className="stylish-button menu-button" onClick={onStart}>Start</button>
     </div>
   )
 }
