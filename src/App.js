@@ -21,10 +21,13 @@ const initWords = { seen: [], unseen: [...wordList] };
 const initLevelState = { wordSelection: [], correctAnswer: ''};
 
 function App() {
+  // General state
   const [currentScreen, setCurrentScreen] = useState('start');
-  const [currentLevel, setCurrentLevel] = useState();
   const [highScore, setHighScore] = useState(localStorage.getItem('highScore') ?? 0);
   const [previousHighScore, setPreviousHighScore] = useState(0);
+
+  // Gameplay state
+  const [currentLevel, setCurrentLevel] = useState();
   const [levelsSinceLastMistake, setLevelsSinceLastMistake] = useState(0);
   const [lives, setLives] = useState(3);
   const [disableWordButtons, setDisableWordButtons] = useState(false);
