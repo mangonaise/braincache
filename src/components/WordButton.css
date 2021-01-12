@@ -7,10 +7,6 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .unselected-word:focus, .unselected-word:hover {
-    border-color: var(--button-focus-color);
-  }
-
   :root {
     --word-shortcut-visibility: visible;
   }
@@ -24,18 +20,7 @@
   opacity: 1;
 }
 
-.word-button:focus {
-  outline: none;
-}
-
-.unselected-word:active {
-  outline: none;
-  border-bottom-width: 2px;
-  height: 40px;
-  margin-top: 5px;
-}
-
-.animate-word {
+.animate-word-background {
   color: white;
   background-position: left bottom;
   box-shadow: none;
@@ -70,7 +55,7 @@
   border-color: rgb(236, 236, 236);
 }
 
-.actual-word {
+.actual-word, .actual-word:hover {
   border-color: rgb(156, 186, 214);
   color: rgb(156, 186, 214);
 }
@@ -99,4 +84,8 @@
   border: solid 2px  var(--button-focus-color);
   border-radius: 6px;
   color: gray;
+}
+
+.no-pointer-events {
+  pointer-events: none;
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import VerticalBreak from './VerticalBreak';
 import './EndScreen.css';
 
-const EndScreen = ({ score, isMaxScore, highScore, onRestart, seenWords }) => {
+const EndScreen = ({ score, isMaxScore, previousHighScore, seenWords, onRestart }) => {
   const [showWords, setShowWords] = useState(false);
 
   let gameOverMessage = <div className="boxed-text">Game over!</div>;
@@ -19,7 +19,7 @@ const EndScreen = ({ score, isMaxScore, highScore, onRestart, seenWords }) => {
   }
 
   let scoreLabel = "Your score:";
-  if (score > highScore) scoreLabel = "New high score!";
+  if (score > previousHighScore) scoreLabel = "New high score!";
 
   return (
     <div className="Screen move-into-view">

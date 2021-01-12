@@ -116,19 +116,19 @@ li {
 }
 
 @media only screen and (min-width: 600px) {
-  .menu-button:focus, .menu-button:hover {
+  .stylish-button:focus, .stylish-button:hover {
     border-color: var(--button-focus-color);
   }
 }
 
-.menu-button:active {
+.stylish-button:active {
   outline: none;
   border-bottom-width: 2px;
   height: 40px;
   margin-top: 5px;
 }
 
-.menu-button:focus {
+.stylish-button:focus {
   outline: none;
 }
 
