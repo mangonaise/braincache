@@ -3,8 +3,7 @@ import './App.css';
 import StartScreen from './components/StartScreen';
 import GameplayScreen from './components/GameplayScreen';
 import EndScreen from './components/EndScreen';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import GithubFooter from './components/GithubFooter';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('start');
@@ -65,11 +64,7 @@ function App() {
       <div className="App">
         {screenContent}
       </div>
-      <div className="footer">
-        <div>by mangonaise</div>
-        <FontAwesomeIcon icon={faHeart} color="rgb(230, 101, 144)"/>
-        <a href="https://github.com/mangonaise/word-memory-game">github</a>
-      </div>
+      <GithubFooter />
     </>
   )
 }

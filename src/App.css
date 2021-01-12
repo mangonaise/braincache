@@ -152,23 +152,6 @@ li {
   animation-fill-mode: forwards;
 }
 
-.footer {
-  font-size: 12px;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-color: white;
-}
-
-.footer > * {
-  margin: 0px 5px;
-}
-
 @keyframes sweep-in {
   from {
     transform: translateX(200px);
