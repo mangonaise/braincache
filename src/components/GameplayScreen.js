@@ -78,7 +78,7 @@ const GameplayScreen = ({ onGameEnd }) => {
     setDisableWordButtons(false);
     setStatusText(statuses.promptSelection);
     document.activeElement.blur();
-    if (levelState.currentLevel === 1) root.style.setProperty('--word-shortcut-visibility', 'hidden');
+    root.style.setProperty('--word-shortcut-visibility', levelState.currentLevel > 1 ? 'hidden' : 'visible');
   }
 
   function generateNewLevelState(init = false) {
